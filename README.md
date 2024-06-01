@@ -1,30 +1,25 @@
-# React + TypeScript + Vite
+# Auroral Ionospheric Magnetospheric Statistical Electron Spectra (AIMSES)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Project Description
+A modernized web application that computes spectral statistics from data obtained from the Fast Auroral SnapshoT Explorer (FAST) satellite. 
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+Provides:
+```
+Statistics: Mean, +1/-1σ, Median, 25%, 75%
+Spectra: Downward, Upward, Mirroring
+Normalization: Raw, Energy Flux, Number Flux
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+Sortable by:
+```
+Location: TIME, MLT, ILAT, ALT
+Ionospheric Conditions: SZA, F10.7
+Magnetospheric Conditions: EFLUX, NFLUX, CONJUGATE SZA, KP, AE, 
+                           DST, SW DRIVING, LCA, MECHANISMS
+```
+
+<br/>
+
+## ER Diagram
+![AIMSES ER Diagram](https://github.com/bryanlee882001/AIMSES/assets/63344458/68d90a77-51c1-4d54-b87f-e695f073ba27)
+
