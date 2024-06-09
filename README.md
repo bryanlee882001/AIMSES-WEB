@@ -3,6 +3,14 @@
 ## Project Description
 A modernized web application that computes spectral statistics from data obtained from the Fast Auroral SnapshoT Explorer (FAST) satellite. 
 
+## Instructions 
+```
+git clone https://github.com/bryanlee882001/AIMSES-WEB.git
+cd AIMSES-WEB 
+npm install 
+npm run build
+```
+
 Provides:
 ```
 Statistics: Mean, +1/-1σ, Median, 25%, 75%
