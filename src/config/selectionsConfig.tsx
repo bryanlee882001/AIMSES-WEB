@@ -1,5 +1,5 @@
 export const selections = {
-  'Location': [
+  Location: [
     { name: 'TIME', active: false },
     { name: 'MLT', active: false },
     { name: 'ILAT', active: false },

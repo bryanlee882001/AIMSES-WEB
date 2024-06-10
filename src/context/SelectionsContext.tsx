@@ -1,5 +1,5 @@
 import React, { createContext, useState, useEffect } from 'react';
-import { selections as initialSelections } from '../config/config';
+import { selections as initialSelections } from '../config/selectionsConfig';
 
 type Selection = {
   name: string;
@@ -26,10 +26,10 @@ type SelectionProviderProps = {
 export const SelectionProvider = ({ children }: SelectionProviderProps) => {
   const [selections, setSelections] = useState<SelectionGroup>({});
 
-  // Initialize selections from config
   useEffect(() => {
     setSelections(initialSelections);
   }, []);
+
   return (
     <SelectionContext.Provider
       value={{
