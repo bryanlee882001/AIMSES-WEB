@@ -1,12 +1,14 @@
 import { SelectionProvider } from './context/SelectionsContext';
+import Introduction from './components/1-Introduction/Introduction';
 import FilterSelection from './components/2-FilterSelection/FilterSelection';
-import Title from './components/1-Introduction/Introduction';
+import Filters from './components/3-Filters/Filters';
 
 function App() {
   return (
     <SelectionProvider>
-      <Title />
+      <Introduction />
       <FilterSelection />
+      <Filters />
     </SelectionProvider>
   );
 }

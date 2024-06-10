@@ -1,0 +1,55 @@
+.filterFrame {
+  border: 2px solid white;
+  border-radius: 20px;
+  padding: 45px;
+  left: 50%;
+  width: 800px;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.filterContainer {
+  padding: 30px;
+  border-radius: 15px;
+  border: 1px solid white;
+  margin-bottom: 15px;
+}
+
+.filterContainer label {
+  color: white;
+  margin-bottom: 4px;
+  font-size: 13px;
+}
+
+.filterContainer label.active {
+  display: block;
+}
+
+.filterGrid {
+  margin-top: 15px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.filterTitle {
+  color: white;
+  font-size: 20px;
+  margin-right: 20px;
+  font-weight: 500;
+}
+
+.filterDescription {
+  color: darkgrey;
+  font-size: 15px;
+  margin-top: 10px;
+  margin-right: 20px;
+}
+
+#filter_mechs .spectraRequirementsContainer {
+  display: block;
+  margin-bottom: 12px;
+}
