@@ -2,6 +2,7 @@ import { useContext } from 'react';
 import { SelectionContext } from '../../context/SelectionsContext';
 import { filters as filterInfo } from '../../config/filtersConfig';
 import styles from './Filters.module.css';
+import FilterRange from './Range/FilterRange';
 
 const Filters = () => {
   const { selections, setSelections } = useContext(SelectionContext);
@@ -43,10 +44,13 @@ const Filters = () => {
           </button>
         </div>
 
-        {/* Filter Selection */}
+        {/* Filter Description */}
         <div className={styles.filterDescription}>
           {filterDetails.description || ''}
         </div>
+
+        {/* Filter Range */}
+        <FilterRange filterName={filter.name} />
       </div>
     );
   };
