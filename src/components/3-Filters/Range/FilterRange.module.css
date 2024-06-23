@@ -1,0 +1,65 @@
+.rangeContainer {
+  margin-top: 15px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.selectRange {
+  background-color: rgb(255, 255, 255, 0.1);
+  border: 2px solid grey;
+  color: white;
+  width: 200px;
+  height: 38px;
+  padding: 8px;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.selectRange:hover {
+  border: 2px solid white;
+}
+
+.selectRange:focus,
+.selectRange:active {
+  border: 2px solid white;
+  outline: none;
+  background-color: rgb(255, 255, 255, 0.3);
+}
+
+.inputContainer {
+  position: relative;
+}
+
+.inputContainer input[type='text'] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  height: 15px;
+  width: 150px;
+  color: white;
+
+  border: 2px solid grey;
+  background-color: rgb(255, 255, 255, 0.1);
+  padding: 10px;
+  border-radius: 10px;
+  margin-left: 10px;
+  padding-right: 70px;
+}
+
+.inputContainer input[type='text']:hover {
+  border: 2px solid white;
+}
+
+.inputContainer input[type='text']:focus {
+  border: 2px solid white;
+  outline: none;
+  background-color: rgb(255, 255, 255, 0.1);
+}
+
+.rangeLabels {
+  margin-left: 10px;
+  font-weight: 500;
+}
