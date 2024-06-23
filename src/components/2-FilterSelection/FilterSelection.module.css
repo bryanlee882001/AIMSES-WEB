@@ -1,8 +1,14 @@
+.title {
+  margin-top: 50px;
+  margin-bottom: 10px;
+  font-weight: 600;
+  font-size: 20px;
+}
+
 .selectionBody {
   left: 50%;
   width: 800px;
   min-height: 200px;
-  margin-top: 50px;
   border: 2px solid white;
   border-radius: 20px;
   padding: 50px;
@@ -50,9 +56,11 @@
 .selectionButton.active {
   border: 2px solid white;
   background-color: rgb(255, 255, 255, 0.3);
+  font-weight: 900;
 }
 
 .selectionButton:focus,
 .selectionButton:active {
   border: 2px solid white;
+  font-weight: 900;
 }
