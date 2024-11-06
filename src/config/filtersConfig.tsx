@@ -1,29 +1,29 @@
 export const filters = {
-  TIME: {
+  'TIME': {
     title: 'TIME',
     description: `DateTime Format: YYYY-MM-DD HH:MM:SS \nMission Start Date: 21 August 1996 \nMission End Date: 4 May 2009`,
     selectionType: 'range',
     unit: '',
   },
-  MLT: {
+  'MLT' : {
     title: 'MLT',
     description: 'Magnetic Global Time',
     selectionType: 'range',
     unit: 'HH:MM:SS',
   },
-  ILAT: {
+  'ILAT': {
     title: 'ILAT',
     description: 'Invariant Latitude',
-    selectionType: 'range',
+    selectionType: 'hemisphere-range',
     unit: 'Degree(s)',
   },
-  ALT: {
+  'ALT': {
     title: 'ALT',
     description: 'Altitude',
     selectionType: 'range',
     unit: 'km',
   },
-  SZA: {
+  'SZA': {
     title: 'SZA',
     description: 'Solar Zenith Angle',
     selectionType: 'range',
@@ -35,13 +35,13 @@ export const filters = {
     selectionType: 'range',
     unit: 'SFU',
   },
-  EFLUX: {
+  'EFLUX': {
     title: 'EFLUX',
     description: 'Net Downgoing Electron Energy Flux',
     selectionType: 'range',
     unit: 'ergs/cm²-s',
   },
-  NFLUX: {
+  'NFLUX': {
     title: 'NFLUX',
     description: 'Net Downgoing Electron Number Flux',
     selectionType: 'range',
@@ -53,19 +53,19 @@ export const filters = {
     selectionType: 'range',
     unit: 'Degree(s)',
   },
-  KP: {
+  'KP': {
     title: 'KP',
     description: 'KP Geomagnetic index (+= 0.33 and -= 0.67)',
     selectionType: 'range',
     unit: '',
   },
-  AE: {
+  'AE': {
     title: 'AE',
     description: 'AE Geomagnetic Index',
     selectionType: 'range',
     unit: 'nano Tesla (nT)',
   },
-  DST: {
+  'DST': {
     title: 'DST',
     description: 'DST Geomagnetic Index',
     selectionType: 'range',
@@ -78,14 +78,14 @@ export const filters = {
     selectionType: 'range',
     unit: '((km/s)<sup>4/3</sup>) x (nT<sup>2/3</sup>)',
   },
-  LCA: {
+  'LCA': {
     title: 'LCA',
     description:
       'Theoretical Lost Cone Angle at Measurement Location as per IGRF Model',
     selectionType: 'range',
     unit: 'Degree(s)',
   },
-  MECHANISMS: {
+  'MECHANISMS': {
     title: 'MECHANISMS',
     description: `QS: Quasi-Static \nAlf: Aflvénic \nWS: Wave-Scattering`,
     selectionType: 'checkbox',

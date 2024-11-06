@@ -59,6 +59,16 @@
   background-color: rgb(255, 255, 255, 0.1);
 }
 
+.inputContainer span {
+  position: absolute;
+  right: 10px; /* Adjust as needed */
+  top: 50%;
+  transform: translateY(-50%);
+  color: lightgray;
+  font-size: 13px;
+  margin-left:-20px;
+}
+
 .rangeLabels {
   margin-left: 10px;
   font-weight: 500;
