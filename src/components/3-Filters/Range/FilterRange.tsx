@@ -1,10 +1,12 @@
-import React, { useState, useContext } from 'react';
-import { SelectionContext } from '../../../context/SelectionsContext';
 import style from './FilterRange.module.css';
+import React, { useState, useContext } from 'react';
+import { filters as filterInfo } from '../../../config/filtersConfig';
+// import { SelectionContext } from '../../../context/SelectionsContext';
 
-const Range = ({ filterName }) => {
-  const { selections } = useContext(SelectionContext);
+const Range = ({ filter }) => {
+  // const { selections } = useContext(SelectionContext);
   const [selectedRange, setSelectedRange] = useState('');
+  const filterDetails = filterInfo[filter.name as keyof typeof filterInfo] || {};
 
   const handleRangeChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedRange(event.target.value);
@@ -12,6 +14,7 @@ const Range = ({ filterName }) => {
 
   return (
     <div className={style.rangeContainer}>
+      {/* Select a Range Value */}
       <select
         className={style.selectRange}
         id="rangeSelect"
@@ -39,7 +42,7 @@ const Range = ({ filterName }) => {
                 className={style.between}
                 placeholder="Insert Value"
               />
-              <span id="minRangeUnit"></span>
+              <span id="minRangeUnit">{filterDetails.unit}</span>
             </div>
           </div>
           <div>
@@ -53,7 +56,7 @@ const Range = ({ filterName }) => {
                 className={style.between}
                 placeholder="Insert Value"
               />
-              <span id="maxRangeUnit"></span>
+              <span id="maxRangeUnit">{filterDetails.unit}</span>
             </div>
           </div>
         </>

@@ -25,6 +25,7 @@ const Filters = () => {
     setSelections(updatedSelections);
   };
 
+  
   const displayFilterInfo = (filter: { name: string; active: boolean }) => {
     const filterDetails =
       filterInfo[filter.name as keyof typeof filterInfo] || {};
@@ -50,7 +51,7 @@ const Filters = () => {
         </div>
 
         {/* Filter Range */}
-        <FilterRange filterName={filter.name} />
+        <FilterRange filter={filter}/>
       </div>
     );
   };
@@ -63,7 +64,7 @@ const Filters = () => {
           <div key={category}>
             {filters
               .filter((filter) => filter.active)
-              .map((filter) => displayFilterInfo(filter))}
+              .map(   (filter) => displayFilterInfo(filter))}
           </div>
         ))}
       </div>
