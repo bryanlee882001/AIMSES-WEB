@@ -44,9 +44,12 @@
   margin-bottom: 15px;
   background-color: black;
   color: white;
+  position: relative;
   border-radius: 5px;
   border: 2px solid grey;
   margin-right: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .selectionButton:hover {
@@ -55,6 +58,7 @@
 
 .selectionButton.active {
   border: 2px solid white;
+  outline: none;
   background-color: rgb(255, 255, 255, 0.3);
   font-weight: 900;
 }
@@ -63,4 +67,23 @@
 .selectionButton:active {
   border: 2px solid white;
   font-weight: 900;
+  outline: none;
+}
+
+.selectionButton:hover::after {
+  content: attr(title);
+  position: absolute;
+  top: -40px;  
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: white;
+  padding: 5px 10px;
+  font-size: 14px;
+  border-radius: 4px;
+  white-space: nowrap;
+  z-index: 1;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
 }

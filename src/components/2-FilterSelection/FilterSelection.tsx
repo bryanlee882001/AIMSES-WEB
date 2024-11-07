@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 import { SelectionContext } from '../../context/SelectionsContext';
+import { filters as filterInfo } from '../../config/filtersConfig';
 import styles from './FilterSelection.module.css';
 
 const FilterSelection = () => {
@@ -32,6 +33,10 @@ const FilterSelection = () => {
                   key={filter.name}
                   className={`${styles.selectionButton} ${filter.active ? styles.active : ''}`}
                   onClick={() => handleClick(category, filter.name)}
+                  title={
+                    filterInfo[filter.name as keyof typeof filterInfo]
+                      .subtitle || ''
+                  }
                 >
                   {filter.name}
                 </button>

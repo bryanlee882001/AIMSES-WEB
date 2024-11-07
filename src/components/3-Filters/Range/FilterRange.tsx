@@ -3,99 +3,111 @@ import React, { useState, useContext } from 'react';
 import { filters as filterInfo } from '../../../config/filtersConfig';
 // import { SelectionContext } from '../../../context/SelectionsContext';
 
-const Range = ({ filter }) => {
+interface Filter {
+  name: string;
+  active: boolean;
+}
+
+const Range: React.FC<{ filter: Filter }> = ({ filter }) => {
   // const { selections } = useContext(SelectionContext);
   const [selectedRange, setSelectedRange] = useState('');
-  const filterDetails = filterInfo[filter.name as keyof typeof filterInfo] || {};
+  const filterDetails =
+    filterInfo[filter.name as keyof typeof filterInfo] || {};
 
   const handleRangeChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedRange(event.target.value);
   };
 
-  return (
-    <div className={style.rangeContainer}>
-      {/* Select a Range Value */}
-      <select
-        className={style.selectRange}
-        id="rangeSelect"
-        value={selectedRange}
-        onChange={handleRangeChange}
-      >
-        <option value="" disabled>
-          Select a Range
-        </option>
-        <option value="between">Between</option>
-        <option value="lesserThan">Lesser Than</option>
-        <option value="greaterThan">Greater Than</option>
-      </select>
+  // Function to render range input fields dynamically based on rangeType
+  const renderRangeInput = (label: string, id: string, unit: string) => (
+    <div>
+      <label htmlFor={id} className={style.rangeLabels}>
+        {label}
+      </label>
+      <div className={style.inputContainer}>
+        <input
+          type="text"
+          id={id}
+          className={style.rangeInput}
+          placeholder="Insert Value"
+        />
+        <span className={style.unit}>{unit}</span>
+      </div>
+    </div>
+  );
 
-      {selectedRange === 'between' && (
+  return (
+    <>
+      {(filterDetails.selectionType === 'range' ||
+        filterDetails.selectionType === 'hemisphere-range') && (
         <>
-          <div>
-            <label id="minRangeLabel" className={style.rangeLabels}>
-              From
-            </label>
-            <div className={style.inputContainer}>
-              <input
-                type="text"
-                id="minRange"
-                className={style.between}
-                placeholder="Insert Value"
-              />
-              <span id="minRangeUnit">{filterDetails.unit}</span>
-            </div>
+          <div className={style.rangeContainer}>
+            <select
+              className={style.selectRange}
+              id="rangeSelect"
+              value={selectedRange}
+              onChange={handleRangeChange}
+            >
+              <option value="" disabled>
+                Select a Range
+              </option>
+              <option value="between">Between</option>
+              <option value="lesserThan">Lesser Than</option>
+              <option value="greaterThan">Greater Than</option>
+            </select>
+
+            {selectedRange === 'between' && (
+              <>
+                {renderRangeInput('From', 'minRange', filterDetails.unit)}
+                {renderRangeInput('To', 'maxRange', filterDetails.unit)}
+              </>
+            )}
+
+            {selectedRange === 'lesserThan' &&
+              renderRangeInput(
+                'Lesser Than',
+                'lesserThanValue',
+                filterDetails.unit,
+              )}
+
+            {selectedRange === 'greaterThan' &&
+              renderRangeInput(
+                'Greater Than',
+                'greaterThanValue',
+                filterDetails.unit,
+              )}
           </div>
           <div>
-            <label id="maxRangeLabel" className={style.rangeLabels}>
-              To
-            </label>
-            <div className={style.inputContainer}>
-              <input
-                type="text"
-                id="maxRange"
-                className={style.between}
-                placeholder="Insert Value"
-              />
-              <span id="maxRangeUnit">{filterDetails.unit}</span>
-            </div>
+            {filterDetails.selectionType === 'hemisphere-range' && (
+              <select
+                className={style.selectRange}
+                id="rangeSelect"
+                value={selectedRange}
+              >
+                <option value="" disabled selected>
+                  Select a Hemisphere
+                </option>
+                <option value="northernhemisphere">Northern Hemisphere</option>
+                <option value="southernhemisphere">Southern Hemisphere</option>
+                <option value="either">Either</option>
+              </select>
+            )}
           </div>
         </>
       )}
 
-      {selectedRange === 'lesserThan' && (
-        <div>
-          <label id="lesserThanLabel" className={style.rangeLabels}>
-            Lesser Than
-          </label>
-          <div className={style.inputContainer}>
-            <input
-              type="text"
-              id="lesserThanValue"
-              className={style.lesserThanInput}
-              placeholder="Insert Value"
-            />
-            <span id="lesserThanUnit"></span>
-          </div>
+      {filterDetails.selectionType === 'checkbox' && (
+        <div className={style.checkboxContainer}>
+          {filterDetails.selections?.map((selection, index) => (
+            <label key={index} className={style.spectraRequirementsContainer}>
+              <input type="radio" name="mechs" value={selection} />
+              {selection}
+              <span className={style.checkboxMark}></span>
+            </label>
+          ))}
         </div>
       )}
-
-      {selectedRange === 'greaterThan' && (
-        <div>
-          <label id="greaterThanLabel" className={style.rangeLabels}>
-            Greater Than
-          </label>
-          <div className={style.inputContainer}>
-            <input
-              type="text"
-              id="greaterThanValue"
-              className={style.greaterThanInput}
-              placeholder="Insert Value"
-            />
-            <span id="greaterThanUnit"></span>
-          </div>
-        </div>
-      )}
-    </div>
+    </>
   );
 };
 

@@ -11,7 +11,7 @@
   border: 2px solid grey;
   color: white;
   width: 200px;
-  height: 38px;
+  height: 45px;
   padding: 8px;
   border-radius: 10px;
   margin-top: 20px;
@@ -37,7 +37,7 @@
   -moz-appearance: none;
   appearance: none;
 
-  height: 15px;
+  height: 20px;
   width: 150px;
   color: white;
 
@@ -61,7 +61,7 @@
 
 .inputContainer span {
   position: absolute;
-  right: 10px; /* Adjust as needed */
+  right: 10px;
   top: 50%;
   transform: translateY(-50%);
   color: lightgray;
@@ -72,4 +72,34 @@
 .rangeLabels {
   margin-left: 10px;
   font-weight: 500;
+}
+
+.spectraRequirementsContainer {
+  display: block;
+  margin-bottom: 12px;
+}
+
+.spectraRequirementsContainer {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.checkboxContainer {
+  gap: 3px;
+  margin-top: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.checkboxContainer label {
+  width: 48%;
+  font-size: 15px;
+}
+
+.checkboxContainer label:hover {
+  cursor: pointer;
+  font-weight: 700;
 }
